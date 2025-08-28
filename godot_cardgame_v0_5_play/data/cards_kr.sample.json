@@ -1,0 +1,142 @@
+{
+  "cards": [
+	{
+	  "id": "EGG-001",
+	  "name_ko": "코로몬",
+	  "type": "Digitama",
+	  "level": 2,
+	  "text_ko": ""
+	},
+	{
+	  "id": "BT1-010",
+	  "name_ko": "아구몬",
+	  "type": "Digimon",
+	  "level": 3,
+	  "dp": 2000,
+	  "text_ko": "등장 시: 1장 드로우(데모).",
+	  "keywords": [],
+	  "play_cost": 3,
+	  "timings": {
+		"onPlay": [
+		  {
+			"op": "draw",
+			"value": 1
+		  }
+		]
+	  }
+	},
+	{
+	  "id": "BT1-015",
+	  "name_ko": "그레이몬",
+	  "type": "Digimon",
+	  "level": 4,
+	  "dp": 4000,
+	  "evolve": [
+		{
+		  "from_level": 3,
+		  "cost": 2
+		}
+	  ],
+	  "timings": {
+		"whenDigivolving": [
+		  {
+			"op": "draw",
+			"value": 1
+		  }
+		]
+	  },
+	  "text_ko": "진화 시: 1장 드로우.",
+	  "keywords": []
+	},
+	{
+	  "id": "BT1-020",
+	  "name_ko": "메탈그레이몬",
+	  "type": "Digimon",
+	  "level": 5,
+	  "dp": 7000,
+	  "evolve": [
+		{
+		  "from_level": 4,
+		  "cost": 3
+		}
+	  ],
+	  "text_ko": ""
+	},
+	{
+	  "id": "BT1-025",
+	  "name_ko": "워그레이몬",
+	  "type": "Digimon",
+	  "level": 6,
+	  "dp": 12000,
+	  "evolve": [
+		{
+		  "from_level": 5,
+		  "cost": 4,
+		  "no_cost_reduce": true
+		}
+	  ],
+	  "keywords": [
+		"보안 공격 +1"
+	  ],
+	  "timings": {
+		"whenAttacking": [
+		  {
+			"op": "grant_sa",
+			"value": 1
+		  }
+		]
+	  },
+	  "text_ko": "보안 공격 +1",
+	  "no_cost_reduce_play": true,
+	  "play_cost": 13
+	},
+	{
+	  "id": "ST1-16",
+	  "name_ko": "타이치",
+	  "type": "Tamer",
+	  "timings": {
+		"whenAttacking": [
+		  {
+			"op": "modify_dp",
+			"value": 3000
+		  }
+		]
+	  },
+	  "text_ko": "자신의 턴 공격 시: 공격자 DP +3000. (데모: 등장/진화 비용 -1)",
+	  "keywords": [
+		"공격시:DP+3000"
+	  ],
+	  "play_cost": 2
+	},
+	{
+	  "id": "BT1-099",
+	  "name_ko": "무료소환몬",
+	  "type": "Digimon",
+	  "level": 3,
+	  "dp": 1000,
+	  "text_ko": "무료 등장(데모).",
+	  "keywords": [],
+	  "play_cost": 5,
+	  "free_play": true
+	},
+	{
+	  "id": "BT1-030",
+	  "name_ko": "육성지원몬",
+	  "type": "Digimon",
+	  "level": 3,
+	  "dp": 1000,
+	  "text_ko": "육성 에리어에서도 효과 사용 가능(키워드 '육성'). 진화 시: 드로우1.",
+	  "keywords": [
+		"육성"
+	  ],
+	  "timings": {
+		"whenDigivolving": [
+		  {
+			"op": "draw",
+			"value": 1
+		  }
+		]
+	  }
+	}
+  ]
+}
