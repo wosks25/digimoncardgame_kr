@@ -1,0 +1,1 @@
+# digimoncardgame_kr
