@@ -9,25 +9,18 @@ class_name BattleManager
 func declare_attack(attacker, target, opponent_state)->void:
 	# 1) 대상이 플레이어면 블로커 개입 기회 부여
 	if typeof(target) == TYPE_DICTIONARY and target.get("is_player", false):
-		# 상대 필드에서 블로커 탐색
+		# ìë íëìì ë¸ë¡ì»¤ íì
 		if keywords and keywords.has_method("try_block"):
-			if keywords.try_block(attacker, opponent_state.field):
-				# 블로커 개입 → 그 블로커와 배틀
-				var blk = _last_blocker(opponent_state.field)
-				if blk:
-					digimon_vs_digimon(attacker, blk, opponent_state)
-					return
+			var blk = keywords.try_block(attacker, opponent_state.field)
+			if blk:
+				# ë¸ë¡ì»¤ ê°ì â ê·¸ ë¸ë¡ì»¤ì ë°°í
+				digimon_vs_digimon(attacker, blk, opponent_state)
+				return
 		# 블로커 없으면 보안 공격
 		attack_player(attacker, opponent_state)
 		return
 	# 2) 대상이 디지몬이면 일반 배틀
 	digimon_vs_digimon(attacker, target, opponent_state)
-
-func _last_blocker(field:Array):
-	for i in range(field.size()-1, -1, -1):
-		if "Blocker" in field[i].keywords and field[i].suspended:
-			return field[i]
-	return null
 
 # 디지몬 대 디지몬
 func digimon_vs_digimon(attacker, defender, opponent_state) -> void:

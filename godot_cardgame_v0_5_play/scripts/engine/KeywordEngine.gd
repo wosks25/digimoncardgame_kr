@@ -4,13 +4,13 @@ class_name KeywordEngine
 signal blocked(attacker, blocker)
 
 # 블로커: 상대가 공격 선언 → 블로커 레스트, 수비자 교체
-func try_block(attacker, opponent_field:Array) -> bool:
+func try_block(attacker, opponent_field:Array):
 	for c in opponent_field:
 		if "Blocker" in c.keywords and not c.suspended:
 			c.suspended = true
 			emit_signal("blocked", attacker, c)
-			return true
-	return false
+			return c
+	return null
 
 # 재기동: 상대 턴 시작에 언스스펜드
 func apply_reboot(owner_field:Array)->void:
